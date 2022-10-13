@@ -1,0 +1,64 @@
+<view class="container">
+	<view class="timer_main" hidden="{{clockshow}}">
+		 <view class="timer_time-wrap">
+		 		<view class="timer_progress_mask"></view>
+        <!-- clockshow控制点击按钮后该是否显示 -->
+        <button    style ="background-color:#2CC2C3" bindtap="Popup" class="button_text">
+        <view class="clock_text" >{{nowTime}}</view></button>
+          <!--点击后灰色背景的设置-->
+          <view wx:if="{{now_state}}" class="background" 	bindtap="hideModal">
+          <!--弹窗的出现-->
+            <view animation="{{animationData}}" class="box" wx:if="{{now_state}}">
+            <!--弹窗内部内容-->
+            选择时间
+                <view class="section"> 
+                  <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindtimechange"> 
+                    <view class="picker"> 
+                      "{{times}}"
+                    </view> 
+                  </picker> 
+                </view>
+            </view>
+          </view>
+		 </view>
+		 <input 
+		 	type="text" 
+		 	placeholder-style="text-align:center" 
+		 	class="timer_inputname" 
+		 	bindinput="changeLogName"
+		 	placeholder="给您的任务取个名字吧"/>
+	</view>
+	
+	<view class="timer_footer" hidden="{{clockshow}}">
+	  <view 
+      style ="background-color:#2392ec ;"
+	  	bindtap="startTimer" class="timer_ctrl" >开始专注
+      </view>
+	</view>
+
+<!-- 运行时页面 -->
+<!-- clockshow控制点击按钮后该是否显示 -->
+  <view class="timer_runing" hidden="{{!clockshow}}">
+		 <view class="timer_runing-wrap">
+		 		<view class="timer_runing_mask"></view>
+        <text 
+			 		wx:if="{{isRuning}}" 
+			 		class="timer_taskName">{{taskName}}{{completed ? '已完成！' : '中'}}</text>
+          <text class="timer_time" hidden="{{!clockshow}}">{{remainTime}}</text>
+		 		<image 
+		 			wx:if="{{completed}}" 
+		 			class="timer_done" 
+		 			src="../../images/login.png"></image>
+		 </view>
+     <view class="Btns">
+      <view class="pauseBtn" bindtap="pause"  wx:if="{{pauseShow}}">暂停</view>
+      <view class="okBtn" bindtap="ok" wx:if="{{okShow}}">返回</view>
+      <view class="continueCancleBtn" wx:if="{{continueCancleShow}}">
+          <view class="continueBtn" bindtap="continue">继续</view>
+          <view class="cancleBtn" bindtap="cancle">放弃</view>
+      </view>
+  </view>
+  </view>
+
+</view>
+

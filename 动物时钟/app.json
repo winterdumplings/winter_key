@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/zoo/zoo",
+    "pages/my/my",
+    "pages/about/about"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2CC2C3",
+    "navigationBarTitleText": "番茄时钟",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_on.png"
+      },
+      {
+        "pagePath": "pages/zoo/zoo",
+        "text": "动物园",
+        "iconPath": "images/zoo.png",
+        "selectedIconPath": "images/zoo_on.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/me_on.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
